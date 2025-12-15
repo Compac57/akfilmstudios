@@ -27,8 +27,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Error Handling for White Screen Debugging -->
+    <script>
+      window.addEventListener('error', function(e) {
+        // Ignore resize loop errors which are benign
+        if (e.message === 'ResizeObserver loop limit exceeded') return;
+        
+        console.error('Global Error:', e.error);
+        const errorDiv = document.createElement('div');
+        errorDiv.style.cssText = 'position:fixed;top:0;left:0;width:100%;background:#ffebeb;color:#d32f2f;padding:20px;z-index:99999;font-family:monospace;box-shadow:0 4px 6px rgba(0,0,0,0.1);';
+        errorDiv.innerHTML = '<strong>System Error:</strong><br/>' + e.message + '<br/><small>' + e.filename + ':' + e.lineno + '</small>';
+        document.body.appendChild(errorDiv);
+      });
+    </script>
+
     <style>
-      html {
+      html, body {
+        height: 100%;
+        margin: 0;
         scroll-padding-top: 80px;
       }
       body {
@@ -110,6 +127,17 @@
       @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
+      }
+      
+      /* Explicit Animation Classes */
+      .animate-slide-up {
+        animation: slideUp 1.2s ease-out forwards;
+      }
+      .animate-fade-in {
+        animation: fadeIn 1.5s ease-out forwards;
+      }
+      .animate-fade-in-delayed {
+        animation: fadeIn 2s ease-out forwards;
       }
     </style>
   <script type="importmap">

@@ -28,21 +28,12 @@ const App: React.FC = () => {
     // LOGIC FOR INITIAL LOAD
     const initialHash = window.location.hash;
     
-    // If the page is loaded/refreshed with these specific hashes, force redirect to Home
-    if (initialHash === '#impressum' || initialHash === '#datenschutz') {
-        // 1. Visually clear the URL immediately (safe try-catch)
-        try {
-            window.history.replaceState(null, '', window.location.pathname);
-        } catch (e) {
-            console.warn("Could not clean URL history:", e);
-        }
-        
-        // 2. Set route to home explicitly (bypassing handleNavigation to avoid reading stale hash)
-        setRoute('home');
-        // 3. Force scroll to top
-        window.scrollTo(0, 0);
+    // Correctly route based on initial hash
+    if (initialHash === '#impressum') {
+        setRoute('impressum');
+    } else if (initialHash === '#datenschutz') {
+        setRoute('datenschutz');
     } else {
-        // For normal hashes (like #work) or empty hash, run standard navigation logic
         handleNavigation();
     }
 

@@ -88,18 +88,18 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
         
-        <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif text-white mb-6 tracking-tight leading-[1] animate-[slideUp_1.2s_ease-out] drop-shadow-xl mt-12">
+        <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif text-white mb-6 tracking-tight leading-[1] animate-slide-up drop-shadow-xl mt-12">
           Eure Liebe. <br />
           <span className="font-serif-alt italic text-brand font-normal">Modern erzählt.</span>
         </h1>
         
         <div className="h-16 w-[1px] bg-gradient-to-b from-transparent via-brand to-transparent my-6"></div>
 
-        <p className="max-w-lg text-gray-100 text-lg md:text-xl font-light leading-relaxed mb-10 animate-[fadeIn_1.5s_ease-out] drop-shadow-lg">
+        <p className="max-w-lg text-gray-100 text-lg md:text-xl font-light leading-relaxed mb-10 animate-fade-in drop-shadow-lg">
           Zuhause in Bregenz. Wir schaffen zeitlose Erinnerungen mit authentischem Storytelling vor der Kulisse des Bodensees.
         </p>
         
-        <div className="animate-[fadeIn_2s_ease-out]">
+        <div className="animate-fade-in-delayed">
             <a 
                 href="#work" 
                 onClick={scrollToWork}
