@@ -21,8 +21,10 @@ const Navbar: React.FC = () => {
     const element = document.getElementById(targetId);
     
     if (element) {
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-        const offsetPosition = elementPosition;
+        // Offset for the fixed header (approx 100px)
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
         window.scrollTo({
             top: offsetPosition,
@@ -36,6 +38,7 @@ const Navbar: React.FC = () => {
             window.location.hash = targetId;
         }
     } else {
+        // If element doesn't exist (e.g. on Impressum page), navigate via hash
         window.location.hash = targetId;
     }
   };
@@ -45,10 +48,7 @@ const Navbar: React.FC = () => {
       if (window.location.hash) {
           try {
              window.history.pushState("", document.title, window.location.pathname + window.location.search);
-             // Ensure hash is visually gone if possible
-             window.location.hash = ''; 
           } catch (e) {
-             // Fallback
              window.location.hash = ''; 
           }
       } 
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled 
-            ? 'bg-[#E6E5E3]/90 backdrop-blur-md py-4 border-b border-gray-200 text-gray-900 shadow-sm' 
+            ? 'bg-[#E6E5E3]/95 backdrop-blur-md py-8 border-b border-gray-200 text-gray-900 shadow-sm' 
             : 'bg-transparent py-8 text-white'
       }`}
     >

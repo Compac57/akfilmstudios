@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Portfolio from './components/Portfolio';
 import Services from './components/Services';
 import Contact from './components/Contact';
+import InstagramFeed from './components/InstagramFeed';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import Impressum from './components/Impressum';
@@ -12,9 +13,16 @@ import Datenschutz from './components/Datenschutz';
 
 const App: React.FC = () => {
   const [route, setRoute] = useState('home');
+  const isInitialLoad = useRef(true);
 
   useEffect(() => {
-    const handleNavigation = () => {
+    // 1. Prevent browser from automatically restoring scroll position or jumping to hash
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    // Function to handle route changes based on hash
+    const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash === '#impressum') {
         setRoute('impressum');
@@ -27,55 +35,76 @@ const App: React.FC = () => {
 
     // LOGIC FOR INITIAL LOAD
     const initialHash = window.location.hash;
-    
+
     // Correctly route based on initial hash
     if (initialHash === '#impressum') {
         setRoute('impressum');
     } else if (initialHash === '#datenschutz') {
         setRoute('datenschutz');
     } else {
-        handleNavigation();
+        // Force Home Route
+        setRoute('home');
+        
+        // Remove hash to prevent any delayed browser auto-scroll
+        if (initialHash) {
+            try {
+                window.history.replaceState(null, '', window.location.pathname + window.location.search);
+            } catch (e) {
+                console.warn('Could not clear hash via history API', e);
+            }
+        }
+        
+        // Force scroll to top INSTANTLY
+        window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
     // Listeners for subsequent navigation
-    window.addEventListener('hashchange', handleNavigation);
-    window.addEventListener('popstate', handleNavigation);
+    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleHashChange);
     
+    // Mark initial load as done after a brief moment to allow rendering
+    setTimeout(() => {
+        isInitialLoad.current = false;
+    }, 100);
+
     return () => {
-        window.removeEventListener('hashchange', handleNavigation);
-        window.removeEventListener('popstate', handleNavigation);
+        window.removeEventListener('hashchange', handleHashChange);
+        window.removeEventListener('popstate', handleHashChange);
     };
   }, []);
 
-  // Handle scrolling behavior based on route changes
+  // Handle scrolling behavior based on route changes (e.g. from Impressum back to Home#contact)
   useEffect(() => {
+    // Do NOT scroll on initial load if we are on home (Hero should be visible)
+    if (isInitialLoad.current && route === 'home') {
+        return;
+    }
+
     if (route === 'home') {
-       // If we are at home and there is a hash (e.g. #work), scroll to it
-      if (window.location.hash && window.location.hash !== '#' && window.location.hash !== '#impressum' && window.location.hash !== '#datenschutz') {
-          const id = window.location.hash.replace('#', '');
+       const hash = window.location.hash;
+       // Only scroll if there is a hash existing now (user clicked nav)
+       if (hash && hash !== '#') {
+          const id = hash.replace('#', '');
           // Small delay to ensure DOM is rendered
           setTimeout(() => {
             const element = document.getElementById(id);
             if (element) {
-              const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+              const headerOffset = 100;
+              const elementPosition = element.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.scrollY - headerOffset;
+              
               window.scrollTo({
-                  top: elementPosition,
+                  top: offsetPosition,
                   behavior: "smooth"
               });
             }
           }, 100);
-      } else {
-          // Default home position (top)
-           // Only scroll to top if we didn't just scroll to a section
-           if (!window.location.hash || window.location.hash === '#') {
-               window.scrollTo({ top: 0, behavior: 'smooth' });
-           }
       }
     } else {
         // For Impressum/Datenschutz pages, always start at top
         window.scrollTo({ top: 0, behavior: 'instant' });
     }
-  }, [route]);
+  }, [route]); 
 
   const renderContent = () => {
     switch (route) {
@@ -91,6 +120,7 @@ const App: React.FC = () => {
             <Portfolio />
             <Services />
             <Contact />
+            <InstagramFeed />
           </>
         );
     }

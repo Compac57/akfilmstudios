@@ -1,4 +1,5 @@
 import React from 'react';
+import { Instagram, Facebook, Film, MapPin, Phone } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
@@ -25,22 +26,63 @@ const Contact: React.FC = () => {
             hello@akfilmstudio.com
         </a>
 
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24 text-left md:text-center max-w-4xl mx-auto">
-            <div>
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 text-left md:text-center max-w-5xl mx-auto">
+            
+            {/* Studio Address */}
+            <div className="flex flex-col md:items-center">
+                <div className="mb-6 text-brand hidden md:block">
+                    <MapPin size={24} strokeWidth={1.5} />
+                </div>
                 <h4 className="text-gray-900 text-xs uppercase tracking-widest mb-4 font-bold">Studio</h4>
-                <p className="text-gray-500 font-light">Rathausstraße 1<br/>6900 Bregenz, Österreich</p>
+                <p className="text-gray-500 font-light leading-relaxed">
+                    Rathausstraße 1<br/>
+                    6900 Bregenz, Österreich
+                </p>
             </div>
-            <div>
-                <h4 className="text-gray-900 text-xs uppercase tracking-widest mb-4 font-bold">Folgt Uns</h4>
-                <div className="flex flex-col space-y-2">
-                    <a href="#" className="text-gray-500 hover:text-brand transition-colors">Instagram</a>
-                    <a href="#" className="text-gray-500 hover:text-brand transition-colors">Vimeo</a>
-                    <a href="#" className="text-gray-500 hover:text-brand transition-colors">Facebook</a>
+
+            {/* Social Icons */}
+            <div className="flex flex-col md:items-center">
+                 <div className="mb-6 text-brand hidden md:block">
+                    <Instagram size={24} strokeWidth={1.5} />
+                </div>
+                <h4 className="text-gray-900 text-xs uppercase tracking-widest mb-4 font-bold">Social</h4>
+                <div className="flex gap-4 md:justify-center">
+                    <a 
+                        href="https://www.instagram.com/akfilmstudio/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="group flex items-center justify-center w-12 h-12 border border-gray-200 rounded-full hover:border-brand hover:bg-brand transition-all duration-300"
+                        aria-label="Instagram"
+                    >
+                        <Instagram size={20} className="text-gray-500 group-hover:text-white transition-colors" />
+                    </a>
+                    <a 
+                        href="#" 
+                        className="group flex items-center justify-center w-12 h-12 border border-gray-200 rounded-full hover:border-brand hover:bg-brand transition-all duration-300"
+                        aria-label="Vimeo"
+                    >
+                        <Film size={20} className="text-gray-500 group-hover:text-white transition-colors" />
+                    </a>
+                    <a 
+                        href="#" 
+                        className="group flex items-center justify-center w-12 h-12 border border-gray-200 rounded-full hover:border-brand hover:bg-brand transition-all duration-300"
+                        aria-label="Facebook"
+                    >
+                        <Facebook size={20} className="text-gray-500 group-hover:text-white transition-colors" />
+                    </a>
                 </div>
             </div>
-            <div>
+
+            {/* Contact Info */}
+            <div className="flex flex-col md:items-center">
+                 <div className="mb-6 text-brand hidden md:block">
+                    <Phone size={24} strokeWidth={1.5} />
+                </div>
                 <h4 className="text-gray-900 text-xs uppercase tracking-widest mb-4 font-bold">Kontakt</h4>
-                <p className="text-gray-500 font-light">+43 664 123 4567<br/>booking@akfilmstudio.com</p>
+                <p className="text-gray-500 font-light leading-relaxed">
+                    +43 664 123 4567<br/>
+                    booking@akfilmstudio.com
+                </p>
             </div>
         </div>
       </div>
