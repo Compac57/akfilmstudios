@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-// Fixed Cinematic Mountain Image for immediate loading
-const HERO_IMAGE = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2500&auto=format&fit=crop";
+// Fixed Cinematic Wedding Image (Bodensee / Lake Vibe)
+const HERO_IMAGE = "https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=2500&auto=format&fit=crop";
 
 const Hero: React.FC = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -51,13 +51,13 @@ const Hero: React.FC = () => {
             transform: `translate(${offset.x}px, ${offset.y}px)`
         }}
       >
-        <div className="absolute inset-0 bg-black/30 z-10" /> {/* Contrast Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 z-10" />
+        <div className="absolute inset-0 bg-black/40 z-10" /> {/* Slightly darker overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60 z-10" />
         
         <div className="absolute inset-0">
             <img 
               src={HERO_IMAGE} 
-              alt="Cinematic Mountains Background" 
+              alt="Cineastisches Brautpaar am Bodensee" 
               className="w-full h-full object-cover scale-105"
               loading="eager"
             />
@@ -68,14 +68,14 @@ const Hero: React.FC = () => {
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
         
         <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif text-white mb-6 tracking-tight leading-[1] animate-slide-up drop-shadow-xl mt-12">
-          Eure Liebe. <br />
-          <span className="font-serif-alt italic text-brand font-normal">Modern erzählt.</span>
+          Eure Geschichte. <br />
+          <span className="font-serif-alt italic text-brand font-normal">Als Meisterwerk.</span>
         </h1>
         
         <div className="h-16 w-[1px] bg-gradient-to-b from-transparent via-brand to-transparent my-6"></div>
 
         <p className="max-w-lg text-gray-100 text-lg md:text-xl font-light leading-relaxed mb-10 animate-fade-in drop-shadow-lg">
-          Zuhause in Bregenz. Wir schaffen zeitlose Erinnerungen mit authentischem Storytelling vor der Kulisse des Bodensees.
+          Zuhause in Bregenz. Wir verwandeln eure einzigartigen Momente in ein cineastisches Erlebnis – authentisch, zeitlos und emotional.
         </p>
         
         <div className="animate-fade-in-delayed">

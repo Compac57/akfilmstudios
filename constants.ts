@@ -14,7 +14,7 @@ export const PROJECTS: Project[] = [
     title: 'Eleganz am See',
     category: 'Fotografie | Bregenz',
     year: '2023',
-    image: 'https://images.unsplash.com/photo-1511285560982-1351c4f63155?q=80&w=2787&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=2940&auto=format&fit=crop',
     description: 'Sonnenuntergangs-Emotionen, eingefangen am Ufer des Bodensees.'
   },
   {
@@ -30,7 +30,7 @@ export const PROJECTS: Project[] = [
     title: 'Atem der Berge',
     category: 'Drone Cinema | Bregenzerwald',
     year: '2023',
-    image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2940&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2940&auto=format&fit=crop',
     description: 'Luftaufnahmen einer traditionellen Hochzeit mit der DJI Mavic 3 Cine.'
   }
 ];

@@ -61,8 +61,8 @@ const About: React.FC = () => {
             <div className="aspect-[3/4] overflow-hidden relative shadow-2xl">
               <div className="absolute inset-0 bg-brand/10 mix-blend-multiply z-10 pointer-events-none"></div>
               <img 
-                  src="https://images.unsplash.com/photo-1532452119098-a3650b3c46d3?q=80&w=2940&auto=format&fit=crop" 
-                  alt="Fotograf mit Sony Kamera" 
+                  src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2940&auto=format&fit=crop" 
+                  alt="Brautpaar in den Bergen" 
                   className="w-full h-full object-cover filter contrast-[1.05] hover:scale-105 transition-all duration-[1.5s] ease-in-out"
               />
             </div>
