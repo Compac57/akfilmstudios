@@ -112,6 +112,29 @@
       .group:hover .hover-zoom-img {
         transform: scale(1.03);
       }
+
+      /* Marquee Animation */
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 40s linear infinite;
+        will-change: transform;
+      }
+      .animate-marquee:hover {
+        animation-play-state: paused;
+      }
+
+      /* Outline Text Utility */
+      .text-stroke {
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+        color: transparent;
+      }
+      .group:hover .text-stroke {
+        -webkit-text-stroke: 1px #C5A059;
+        color: transparent;
+      }
       
       @media (max-width: 768px) {
         body {

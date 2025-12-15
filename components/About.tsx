@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import TiltWrapper from './TiltWrapper';
+import { MapPin, Globe } from 'lucide-react';
 
 const About: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -17,15 +18,13 @@ const About: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const LOCATIONS = ["BREGENZ", "DORNBIRN", "LECH", "FELDKIRCH", "MONTAFON", "ZÜRICH"];
-
   return (
     <section 
       id="studio" 
       ref={sectionRef} 
-      className={`py-24 md:py-40 bg-white text-gray-800 relative overflow-hidden fade-in-section ${isVisible ? 'is-visible' : ''}`}
+      className={`pt-24 md:pt-40 bg-white text-gray-800 relative overflow-hidden fade-in-section ${isVisible ? 'is-visible' : ''}`}
     >
-      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20 items-center mb-32">
+      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20 items-center mb-24">
         
         {/* Text Column */}
         <div className="space-y-8 order-2 md:order-1">
@@ -79,17 +78,58 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Locations / Marquee */}
-      <div className="border-t border-gray-100 py-16 bg-[#F9F9F7]">
-         <div className="container mx-auto px-6 text-center">
-            <p className="text-brand text-[10px] tracking-[0.4em] uppercase mb-12">Verfügbar in ganz Vorarlberg & darüber hinaus</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40">
-                {LOCATIONS.map(loc => (
-                    <span key={loc} className="text-xl md:text-2xl font-serif text-gray-800 hover:text-brand transition-colors duration-300 cursor-default">
-                        {loc}
-                    </span>
-                ))}
+      {/* Simple, Elegant Travel Section */}
+      <div className="relative w-full py-24 bg-[#F2F2F0] border-t border-gray-200">
+         
+         {/* Subtle Background Texture */}
+         <div className="absolute inset-0 opacity-5 pointer-events-none mix-blend-multiply">
+             <img 
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2500&auto=format&fit=crop" 
+                alt="Alpen Textur" 
+                className="w-full h-full object-cover grayscale"
+             />
+         </div>
+
+         <div className="container mx-auto px-6 text-center relative z-10">
+            
+            {/* Icon / Top Label */}
+            <div className="flex justify-center mb-6">
+                <div className="border border-brand/40 rounded-full p-3 bg-white/50 backdrop-blur-sm">
+                    <Globe size={20} className="text-brand" />
+                </div>
             </div>
+
+            <h3 className="text-3xl md:text-5xl font-serif text-gray-900 mb-6 tracking-tight">
+                Zuhause in Vorarlberg.<br/>
+                <span className="italic text-gray-500 font-serif-alt font-light">Für euch überall.</span>
+            </h3>
+
+            <p className="max-w-xl mx-auto text-gray-600 font-light leading-relaxed mb-12">
+                Ob eine intime Zeremonie am Bodensee, eine Berghochzeit am Arlberg oder ein Abenteuer im Ausland. Wir reisen dorthin, wo eure Geschichte geschrieben wird.
+            </p>
+
+            {/* Location List - Clean Editorial Style */}
+            <div className="max-w-4xl mx-auto border-t border-b border-gray-300 py-8">
+                <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-xs md:text-sm tracking-[0.2em] uppercase text-gray-800 font-medium">
+                    <span className="hover:text-brand transition-colors cursor-default">Bregenz</span>
+                    <span className="text-brand/40">•</span>
+                    <span className="hover:text-brand transition-colors cursor-default">Dornbirn</span>
+                    <span className="text-brand/40">•</span>
+                    <span className="hover:text-brand transition-colors cursor-default">Lech / Zürs</span>
+                    <span className="text-brand/40">•</span>
+                    <span className="hover:text-brand transition-colors cursor-default">Montafon</span>
+                    <span className="text-brand/40">•</span>
+                    <span className="hover:text-brand transition-colors cursor-default">Zürich</span>
+                    <span className="text-brand/40">•</span>
+                    <span className="hover:text-brand transition-colors cursor-default">Worldwide</span>
+                </div>
+            </div>
+
+            <div className="mt-8 flex items-center justify-center gap-2 text-gray-500 text-xs font-light">
+                <MapPin size={12} className="text-brand" />
+                <span>Base: 6900 Bregenz, Austria</span>
+            </div>
+
          </div>
       </div>
     </section>
