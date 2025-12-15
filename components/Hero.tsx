@@ -1,25 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const HERO_IMAGES = [
-  // 1. Bregenz / Bodensee Vibe (Molo/Pier Atmosphere)
-  "https://images.unsplash.com/photo-1506462706852-646261f062d0?q=80&w=2500&auto=format&fit=crop",
-  // 2. Burg / Historic Stone Architecture (Gebhardsberg/Schattenburg Vibe)
-  "https://images.unsplash.com/photo-1533154683836-84ea7a0bc310?q=80&w=2500&auto=format&fit=crop",
-  // 3. Panoramic Lake View (Pfänder View Vibe)
-  "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?q=80&w=2500&auto=format&fit=crop"
-];
+// Fixed Cinematic Mountain Image for immediate loading
+const HERO_IMAGE = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2500&auto=format&fit=crop";
 
 const Hero: React.FC = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % HERO_IMAGES.length);
-    }, 6000); // Change image every 6 seconds
-
-    return () => clearInterval(interval);
-  }, []);
 
   // Camera Drift Effect
   useEffect(() => {
@@ -57,11 +42,11 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#F9F9F7]">
+    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#1a1a1a]">
       
-      {/* Background Images Slider with Parallax Drift */}
+      {/* Fixed Background Image with Parallax Drift */}
       <div 
-        className="absolute inset-[-20px] z-0 transition-transform duration-200 ease-out"
+        className="absolute inset-[-20px] z-0 transition-transform duration-100 ease-out"
         style={{
             transform: `translate(${offset.x}px, ${offset.y}px)`
         }}
@@ -69,20 +54,14 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-black/30 z-10" /> {/* Contrast Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 z-10" />
         
-        {HERO_IMAGES.map((img, index) => (
-          <div
-            key={img}
-            className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
-              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
+        <div className="absolute inset-0">
             <img 
-              src={img} 
-              alt="Bregenz Bodensee Burg Atmosphere" 
-              className="w-full h-full object-cover scale-105" 
+              src={HERO_IMAGE} 
+              alt="Cinematic Mountains Background" 
+              className="w-full h-full object-cover scale-105"
+              loading="eager"
             />
-          </div>
-        ))}
+        </div>
       </div>
 
       {/* Content */}
