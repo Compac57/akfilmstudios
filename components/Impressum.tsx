@@ -1,13 +1,26 @@
 import React, { useEffect } from 'react';
+import { ArrowLeft } from 'lucide-react';
 
 const Impressum: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const goHome = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.history.pushState(null, '', window.location.pathname);
+    window.dispatchEvent(new Event('popstate'));
+  };
+
   return (
     <section className="pt-40 pb-24 bg-[#F9F9F7] min-h-screen text-gray-800">
       <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+        <div className="mb-8">
+             <a href="#" onClick={goHome} className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gray-400 hover:text-brand transition-colors">
+                 <ArrowLeft size={14} /> Zurück zur Startseite
+             </a>
+        </div>
+
         <span className="text-brand text-xs tracking-[0.3em] uppercase block mb-6">Rechtliches</span>
         <h1 className="text-4xl md:text-5xl font-serif text-gray-900 mb-12">Impressum</h1>
 
@@ -18,7 +31,7 @@ const Impressum: React.FC = () => {
             <h2 className="text-xl font-serif text-gray-900 mb-4">Angaben gemäß § 5 ECG</h2>
             <p className="mb-2"><strong className="font-medium text-gray-800">AK Film Studio</strong></p>
             <p>Inhaber: [Dein Vor- und Nachname]</p>
-            <p>Rathausstraße 1</p>
+            <p>Weiherstrasse 2</p>
             <p>6900 Bregenz</p>
             <p>Österreich</p>
           </div>
@@ -61,10 +74,9 @@ const Impressum: React.FC = () => {
            <div>
             <h2 className="text-xl font-serif text-gray-900 mb-4">Bildnachweise</h2>
             <p>
-              Die Bilder, Fotos und Grafiken auf dieser Webseite sind urheberrechtlich geschützt.
-              Die Bildrechte liegen bei: AK Film Studio, Unsplash (Lizenzfrei).
+                Bilder und Grafiken: Unsplash, AK Film Studio.
             </p>
-          </div>
+           </div>
 
         </div>
       </div>

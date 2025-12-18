@@ -31,13 +31,31 @@
     <!-- Error Handling for White Screen Debugging -->
     <script>
       window.addEventListener('error', function(e) {
-        // Ignore resize loop errors which are benign
-        if (e.message === 'ResizeObserver loop limit exceeded') return;
+        // Prevent crashing on initial load or benign external script errors
+        if (!e) return;
         
+        const msg = e.message ? String(e.message) : '';
+        
+        // Ignore known benign errors
+        if (
+            msg.includes('ResizeObserver') || 
+            msg.includes('Script error') ||
+            msg === 'Script error.'
+        ) {
+            // Log for developer context but do not show overlay
+            console.warn('Ignored benign error:', msg);
+            return;
+        }
+
+        // If error object is missing, it's likely a cross-origin script error we can't inspect
+        if (!e.error) return;
+
         console.error('Global Error:', e.error);
+        
+        // Only show overlay for actual application errors
         const errorDiv = document.createElement('div');
         errorDiv.style.cssText = 'position:fixed;top:0;left:0;width:100%;background:#ffebeb;color:#d32f2f;padding:20px;z-index:99999;font-family:monospace;box-shadow:0 4px 6px rgba(0,0,0,0.1);';
-        errorDiv.innerHTML = '<strong>System Error:</strong><br/>' + e.message + '<br/><small>' + e.filename + ':' + e.lineno + '</small>';
+        errorDiv.innerHTML = '<strong>System Error:</strong><br/>' + msg + '<br/><small>' + (e.filename || 'Unknown Source') + ':' + (e.lineno || '?') + '</small>';
         document.body.appendChild(errorDiv);
       });
     </script>

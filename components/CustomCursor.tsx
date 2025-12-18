@@ -10,17 +10,31 @@ const CustomCursor: React.FC = () => {
     };
 
     const onMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (
-        target.tagName === 'A' ||
-        target.tagName === 'BUTTON' ||
-        target.closest('a') ||
-        target.closest('button') ||
-        target.classList.contains('hover-trigger')
-      ) {
-        setIsHovering(true);
-      } else {
+      const target = e.target;
+      
+      // Safety check: Ensure target is a valid Element Node (nodeType 1)
+      if (!target || (target as Node).nodeType !== 1) {
         setIsHovering(false);
+        return;
+      }
+      
+      const element = target as HTMLElement;
+
+      try {
+          if (
+            element.tagName === 'A' ||
+            element.tagName === 'BUTTON' ||
+            element.closest('a') ||
+            element.closest('button') ||
+            (element.classList && element.classList.contains('hover-trigger'))
+          ) {
+            setIsHovering(true);
+          } else {
+            setIsHovering(false);
+          }
+      } catch (err) {
+          // If accessing properties fails (e.g. on SVG inside button), fail gracefully
+          setIsHovering(false);
       }
     };
 

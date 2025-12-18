@@ -1,13 +1,26 @@
 import React, { useEffect } from 'react';
+import { ArrowLeft } from 'lucide-react';
 
 const Datenschutz: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const goHome = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.history.pushState(null, '', window.location.pathname);
+    window.dispatchEvent(new Event('popstate'));
+  };
+
   return (
     <section className="pt-40 pb-24 bg-[#F9F9F7] min-h-screen text-gray-800">
       <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+        <div className="mb-8">
+             <a href="#" onClick={goHome} className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gray-400 hover:text-brand transition-colors">
+                 <ArrowLeft size={14} /> Zurück zur Startseite
+             </a>
+        </div>
+
         <span className="text-brand text-xs tracking-[0.3em] uppercase block mb-6">Privatsphäre</span>
         <h1 className="text-4xl md:text-5xl font-serif text-gray-900 mb-12">Datenschutz</h1>
 
@@ -19,7 +32,7 @@ const Datenschutz: React.FC = () => {
               Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003). In diesen Datenschutzinformationen informieren wir Sie über die wichtigsten Aspekte der Datenverarbeitung im Rahmen unserer Website.
             </p>
             <p><strong>Verantwortlicher:</strong></p>
-            <p>AK Film Studio<br/>[Dein Name]<br/>Rathausstraße 1, 6900 Bregenz<br/>hello@akfilmstudio.com</p>
+            <p>AK Film Studio<br/>[Dein Name]<br/>Weiherstrasse 2, 6900 Bregenz<br/>hello@akfilmstudio.com</p>
           </div>
 
           <div>

@@ -54,8 +54,8 @@ const App: React.FC = () => {
             }
         }
         
-        // Force scroll to top INSTANTLY
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        // Force scroll to top INSTANTLY (using auto to be safe across browsers)
+        window.scrollTo({ top: 0, behavior: 'auto' });
     }
 
     // Listeners for subsequent navigation
@@ -102,7 +102,7 @@ const App: React.FC = () => {
       }
     } else {
         // For Impressum/Datenschutz pages, always start at top
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.scrollTo({ top: 0, behavior: 'auto' });
     }
   }, [route]); 
 

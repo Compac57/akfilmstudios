@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Facebook, Film, MapPin, Phone } from 'lucide-react';
+import { Instagram, Facebook, Film, MapPin, Phone, ArrowUpRight } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
@@ -26,63 +26,103 @@ const Contact: React.FC = () => {
             hello@akfilmstudio.com
         </a>
 
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 text-left md:text-center max-w-5xl mx-auto">
+        {/* Updated Grid: Map Card, Socials, Contact */}
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-start max-w-6xl mx-auto">
             
-            {/* Studio Address */}
-            <div className="flex flex-col md:items-center">
-                <div className="mb-6 text-brand hidden md:block">
-                    <MapPin size={24} strokeWidth={1.5} />
-                </div>
-                <h4 className="text-gray-900 text-xs uppercase tracking-widest mb-4 font-bold">Studio</h4>
-                <p className="text-gray-500 font-light leading-relaxed">
-                    Rathausstraße 1<br/>
+            {/* Column 1: Map / Studio Location */}
+            <div className="flex flex-col items-center w-full">
+                <h4 className="text-gray-900 text-xs uppercase tracking-widest mb-6 font-bold flex items-center gap-2">
+                    Studio & Location
+                </h4>
+                
+                <a 
+                    href="https://www.google.com/maps/search/?api=1&query=Weiherstrasse+2,+6900+Bregenz" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="group relative w-full aspect-[4/3] md:aspect-square max-w-[280px] rounded-sm overflow-hidden bg-gray-200 shadow-sm hover:shadow-xl transition-all duration-500 mb-6 block"
+                >
+                    {/* Map Background Image (Abstract Map Texture) */}
+                    <img 
+                        src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop" 
+                        alt="Map Location Bregenz" 
+                        className="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                    />
+                    
+                    {/* Dark Overlay for better contrast initially */}
+                    <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
+
+                    {/* Center Pin UI */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="relative">
+                            <div className="w-12 h-12 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 z-10 relative">
+                                <MapPin size={20} className="text-brand fill-brand/20" />
+                            </div>
+                            {/* Pulse Effect */}
+                            <div className="absolute inset-0 bg-brand/30 rounded-full animate-ping opacity-0 group-hover:opacity-100"></div>
+                        </div>
+                    </div>
+
+                    {/* Hover Label 'Route Planen' */}
+                    <div className="absolute bottom-4 left-0 right-0 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <span className="inline-flex items-center gap-1 bg-white/95 text-gray-900 text-[9px] uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm">
+                            Route planen <ArrowUpRight size={10} />
+                        </span>
+                    </div>
+                </a>
+
+                <p className="text-gray-500 font-light leading-relaxed text-sm">
+                    Weiherstrasse 2<br/>
                     6900 Bregenz, Österreich
                 </p>
             </div>
 
-            {/* Social Icons */}
-            <div className="flex flex-col md:items-center">
-                 <div className="mb-6 text-brand hidden md:block">
-                    <Instagram size={24} strokeWidth={1.5} />
+            {/* Column 2: Social Icons */}
+            <div className="flex flex-col items-center w-full md:pt-14">
+                <div className="mb-6 text-brand">
+                    <Instagram size={28} strokeWidth={1.2} />
                 </div>
-                <h4 className="text-gray-900 text-xs uppercase tracking-widest mb-4 font-bold">Social</h4>
-                <div className="flex gap-4 md:justify-center">
+                <h4 className="text-gray-900 text-xs uppercase tracking-widest mb-6 font-bold">Social Media</h4>
+                <div className="flex gap-4 justify-center">
                     <a 
                         href="https://www.instagram.com/akfilmstudio/" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="group flex items-center justify-center w-12 h-12 border border-gray-200 rounded-full hover:border-brand hover:bg-brand transition-all duration-300"
+                        className="group flex items-center justify-center w-14 h-14 border border-gray-200 rounded-full hover:border-brand hover:bg-brand transition-all duration-300"
                         aria-label="Instagram"
                     >
-                        <Instagram size={20} className="text-gray-500 group-hover:text-white transition-colors" />
+                        <Instagram size={22} className="text-gray-500 group-hover:text-white transition-colors" />
                     </a>
                     <a 
                         href="#" 
-                        className="group flex items-center justify-center w-12 h-12 border border-gray-200 rounded-full hover:border-brand hover:bg-brand transition-all duration-300"
+                        className="group flex items-center justify-center w-14 h-14 border border-gray-200 rounded-full hover:border-brand hover:bg-brand transition-all duration-300"
                         aria-label="Vimeo"
                     >
-                        <Film size={20} className="text-gray-500 group-hover:text-white transition-colors" />
+                        <Film size={22} className="text-gray-500 group-hover:text-white transition-colors" />
                     </a>
                     <a 
                         href="#" 
-                        className="group flex items-center justify-center w-12 h-12 border border-gray-200 rounded-full hover:border-brand hover:bg-brand transition-all duration-300"
+                        className="group flex items-center justify-center w-14 h-14 border border-gray-200 rounded-full hover:border-brand hover:bg-brand transition-all duration-300"
                         aria-label="Facebook"
                     >
-                        <Facebook size={20} className="text-gray-500 group-hover:text-white transition-colors" />
+                        <Facebook size={22} className="text-gray-500 group-hover:text-white transition-colors" />
                     </a>
                 </div>
             </div>
 
-            {/* Contact Info */}
-            <div className="flex flex-col md:items-center">
-                 <div className="mb-6 text-brand hidden md:block">
-                    <Phone size={24} strokeWidth={1.5} />
+            {/* Column 3: Contact Info */}
+            <div className="flex flex-col items-center w-full md:pt-14">
+                 <div className="mb-6 text-brand">
+                    <Phone size={28} strokeWidth={1.2} />
                 </div>
-                <h4 className="text-gray-900 text-xs uppercase tracking-widest mb-4 font-bold">Kontakt</h4>
-                <p className="text-gray-500 font-light leading-relaxed">
-                    +43 664 123 4567<br/>
-                    booking@akfilmstudio.com
-                </p>
+                <h4 className="text-gray-900 text-xs uppercase tracking-widest mb-6 font-bold">Direkt Kontakt</h4>
+                <div className="space-y-4">
+                    <a href="tel:+436641234567" className="block text-gray-500 font-light hover:text-brand transition-colors text-lg">
+                        +43 664 123 4567
+                    </a>
+                    <a href="mailto:booking@akfilmstudio.com" className="block text-gray-500 font-light hover:text-brand transition-colors text-sm uppercase tracking-wider">
+                        booking@akfilmstudio.com
+                    </a>
+                </div>
             </div>
         </div>
       </div>
