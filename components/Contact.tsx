@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
 
         <div className="max-w-2xl mx-auto mb-12">
           <p className="text-gray-600 text-lg md:text-xl font-light">
-            Wir nehmen derzeit Buchungen für die Hochzeitssaison 2024 & 2025 in Vorarlberg und Umgebung an.
+            Wir nehmen derzeit Buchungen für Hochzeitsfotografie und cineastische Hochzeitsfilme für die Saison 2024 & 2025 in Vorarlberg, am Bodensee und weltweit an.
           </p>
         </div>
 

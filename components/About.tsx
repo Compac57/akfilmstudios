@@ -40,10 +40,10 @@ const About: React.FC = () => {
           
           <div className="space-y-6 text-gray-600 text-lg font-light leading-relaxed max-w-lg">
             <p>
-              AK Film Studio ist eine Boutique Foto- und Filmanagentur im Herzen von Vorarlberg. Wir haben uns darauf spezialisiert, die echten, ungestellten Momente eures Hochzeitstages festzuhalten.
+              AK Film Studio ist eure Boutique Foto- und Filmanagentur im Herzen von Vorarlberg. Wir haben uns darauf spezialisiert, cineastische Hochzeitsfilme und authentische Fotografie zu kreieren, die echte, ungestellte Momente eures Hochzeitstages festhalten.
             </p>
             <p>
-              Ausgestattet mit High-End Sony Cinema Kameras und DJI Drohnentechnologie verwandeln wir flüchtige Augenblicke in unvergessliche Erinnerungen – vom Bodenseeufer bis zu den Gipfeln des Arlbergs.
+              Ausgestattet mit High-End Sony Cinema Kameras und modernster DJI Drohnentechnologie für atemberaubende Drohnenaufnahmen für Hochzeiten, verwandeln wir flüchtige Augenblicke in unvergessliche Erinnerungen – vom Bodenseeufer bis zu den Gipfeln des Arlbergs.
             </p>
           </div>
           

@@ -68,15 +68,15 @@ const Hero: React.FC = () => {
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
         
         <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif text-white mb-6 tracking-tight leading-[1] animate-slide-up drop-shadow-xl mt-12">
-          Eure Geschichte. <br />
-          <span className="font-serif-alt italic text-brand font-normal">Als Meisterwerk.</span>
+          Cineastische <br />
+          <span className="font-serif-alt italic text-brand font-normal">Hochzeitsfilme.</span>
         </h1>
         
         <div className="h-16 w-[1px] bg-gradient-to-b from-transparent via-brand to-transparent my-6"></div>
 
-        <p className="max-w-lg text-gray-100 text-lg md:text-xl font-light leading-relaxed mb-10 animate-fade-in drop-shadow-lg">
-          Zuhause in Bregenz. Wir verwandeln eure einzigartigen Momente in ein cineastisches Erlebnis – authentisch, zeitlos und emotional.
-        </p>
+        <h2 className="max-w-xl text-gray-100 text-lg md:text-xl font-light leading-relaxed mb-10 animate-fade-in drop-shadow-lg">
+          Exklusive Hochzeitsfotografie & Drohnenaufnahmen für Hochzeiten in Vorarlberg, am Bodensee und weltweit. Wir verwandeln eure Momente in ein Meisterwerk.
+        </h2>
         
         <div className="animate-fade-in-delayed">
             <a 

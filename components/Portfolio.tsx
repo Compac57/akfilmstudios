@@ -28,7 +28,7 @@ const Portfolio: React.FC = () => {
                 <h2 className="text-4xl md:text-6xl font-serif tracking-tight text-gray-900">Liebes<span className="font-serif-alt italic text-gray-500">geschichten</span></h2>
             </div>
             <p className="max-w-sm text-gray-500 font-light text-sm leading-relaxed text-right hidden md:block">
-                Eine Sammlung intimer Hochzeiten, emotionaler Filme und atemberaubender Paarshootings.
+                Eine Sammlung intimer Hochzeiten, cineastischer Hochzeitsfilme und atemberaubender Paarshootings in Vorarlberg und am Bodensee.
             </p>
         </div>
       </div>

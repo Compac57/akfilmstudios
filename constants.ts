@@ -39,22 +39,22 @@ export const SERVICES: Service[] = [
   {
     id: 'photo',
     title: 'Hochzeitsfotografie',
-    description: 'Zeitlos, offen und emotional. Wir fangen die flüchtigen Momente ein, die euren Tag einzigartig machen – mit hochauflösenden Sony-Sensoren.'
+    description: 'Zeitlos, offen und emotional. Wir fangen die flüchtigen Momente ein, die euren Tag einzigartig machen – mit hochauflösenden Sony-Sensoren für perfekte Hochzeitsbilder.'
   },
   {
     id: 'film',
-    title: 'Cineastische Filme',
-    description: 'Story-getriebene Hochzeitsfilme. Nicht nur eine Aufnahme, sondern ein Film eurer Liebe, perfekt color-graded.'
+    title: 'Cineastische Hochzeitsfilme',
+    description: 'Story-getriebene, cineastische Hochzeitsfilme. Nicht nur eine Aufnahme, sondern ein emotionaler Film eurer Liebe, perfekt color-graded im Hollywood-Look.'
   },
   {
     id: 'drone',
-    title: 'Luftaufnahmen',
-    description: 'Atemberaubende 4K-Drohnenaufnahmen eurer Location und Landschaft mit modernster DJI-Technologie. Die perfekte Perspektive für die Vorarlberger Kulisse.'
+    title: 'Drohnenaufnahmen für Hochzeiten',
+    description: 'Atemberaubende 4K-Drohnenaufnahmen eurer Location und Landschaft mit modernster DJI-Technologie. Die perfekte cineastische Perspektive für eure Hochzeit in Vorarlberg oder am Bodensee.'
   },
   {
     id: 'couple',
-    title: 'Paarshootings',
-    description: 'Pre-Wedding oder Verlobungsshootings in der Natur von Bregenz und Umgebung, um sich vor der Kamera wohlzufühlen.'
+    title: 'Paarshootings & Elopements',
+    description: 'Pre-Wedding oder Verlobungsshootings in der Natur von Bregenz und Umgebung, um sich vor der Kamera wohlzufühlen und einzigartige Momente zu schaffen.'
   }
 ];
 

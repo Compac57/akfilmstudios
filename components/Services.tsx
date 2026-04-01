@@ -15,7 +15,7 @@ const Services: React.FC = () => {
             Für das <br/> <span className="font-serif-alt italic text-brand">Moderne Paar</span>
           </h2>
           <p className="text-gray-500 leading-relaxed mb-8 font-light">
-            Wir kombinieren dokumentarische Fotografie mit cineastischem Storytelling. Mit modernsten Sony Alpha Kameras und DJI Drohnen halten wir jedes Detail in kristallklarer Qualität fest.
+            Wir kombinieren dokumentarische Hochzeitsfotografie mit cineastischem Storytelling. Ob emotionale Hochzeitsfilme oder spektakuläre Drohnenaufnahmen für Hochzeiten – wir halten jedes Detail in kristallklarer 4K-Qualität fest.
           </p>
           <a href="#contact" className="inline-flex items-center gap-3 text-sm uppercase tracking-widest border border-gray-300 px-6 py-3 hover:bg-brand hover:border-brand hover:text-white transition-all duration-300 text-gray-600">
             Preise anfragen
